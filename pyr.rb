@@ -8,12 +8,16 @@ module Lang_Basics2
       model.start_operation('pyramid', true)
       group = model.active_entities.add_group
       entities = group.entities
+      # scale should, (ideally) change the size of the whole triangle
+      # if it is changed
       scale = (4.to_f)
-      h = scale * (Math.sqrt(3) / 2)
-      q = scale / 2
+      # h is the triangle "height"
+      h = scale * (Math.sqrt(3) / 2) 
       # trying to find x,y of base centroid
       # tried various Math.cos, 2*(h/3), etc; issue is fitting
       # centroid on x,y, not relative to triangle itself
+      
+     # xx, yy, hh will be the x,y,z values for point "vert"
       xx = ?
       yy = ?
       hh = ?
@@ -22,9 +26,9 @@ module Lang_Basics2
       a = [
       Geom::Point3d.new(0,   0,   0),
       Geom::Point3d.new(scale, 0, 0),
-      Geom::Point3d.new(q, h,  0)
+      Geom::Point3d.new(scale / 2, h,  0)
       ]
-      
+      # points
       tri = [a[0], a[1], a[2]]
         b = [vert, a[0], a[1]]
         c = [a[2], vert, a[0]]
@@ -44,3 +48,4 @@ module Lang_Basics2
     end
   end # module Pyr
 end # mod Lang_Basics
+
