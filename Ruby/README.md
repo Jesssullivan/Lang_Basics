@@ -11,7 +11,7 @@ The goal is to create Tetrahedron from the x,y,z coordinate system.
 
 "tetrah.rb" now functional as a bare-bones plugin for Sketchup.  
 
-…Success with the tetrahedron on a tilt:  See here:
+…Success with the Tetrahedron on a tilt:  See here:
 http://mathworld.wolfram.com/RegularTetrahedron.html
 
 
