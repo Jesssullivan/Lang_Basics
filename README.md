@@ -1,4 +1,4 @@
-Collecting snippets-
+Random, otherwise useless snippets-
 
 # See /Ruby for Sketchup .rb stuff
 [/Ruby](https://github.com/Jesssullivan/Lang_Basics/tree/master/Ruby)
