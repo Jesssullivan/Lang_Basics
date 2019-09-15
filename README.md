@@ -1,9 +1,13 @@
 Collecting snippets-
 
+# See /Ruby for Sketchup .rb stuff
+[/Ruby](https://github.com/Jesssullivan/Lang_Basics/tree/master/Ruby)
 
 
-# PPTX_2_PDF:
-bulk convert PowerPoint PPTX to PDF 
+
+# Shell: PPTX_2_PDF
+
+bulk convert PowerPoint PPTX to PDF with the LibreOffice CLI
 
 **Install LibreOffice tools for CLI**
 https://www.libreoffice.org/get-help/install-howto/
