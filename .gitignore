@@ -1,0 +1,7 @@
+math_notes/tmp.py
+.DS_Store
+venv
+math_notes/venv
+
+*/tmp.*
+scratch.*
