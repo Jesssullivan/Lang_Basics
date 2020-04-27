@@ -11,8 +11,6 @@
 # run as $USER:
 # ./heic_png.sh
 
-
-
 command -v heif-convert >/dev/null || {
 
   echo >&2 -e "heif-convert not intalled! \nattempting to add ppa....";
