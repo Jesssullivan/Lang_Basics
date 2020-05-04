@@ -6,10 +6,22 @@
 # sudo chmod u+x motioneye_setup.sh
 # ./motioneye_setup.sh
 
-# Target:
-DISK="sdd"
+# Target default is sdc:
+if ! [[ $1 == *sd** ]]; then
+  echo -e "Using default disk target sdc \nyou may append a different target like so: \n"
+  echo -e "sudo ./motioneye_setup.sh sdd"
+  DISK="sdc"
+else
+  echo -e "Using specified target $1"
+  DISK=$1
+fi
+
 # fully qualified image url:
 ADDR=https://github.com/ccrisan/motioneyeos/releases/download/20190911/motioneyeos-raspberrypi-20190911.img.xz
+
+# the "don't remove image" arg:
+KEEP="keep"
+
 # image filename:
 IMG="${ADDR##*/}"
 
@@ -47,11 +59,17 @@ umount /dev/$DISK 2>/dev/null || true
 dd if=$DISK_IMG of=/dev/$DISK bs=1048576
 sync
 
+#
+if ! [ "$1" = $KEEP ] || [ "$2" = $KEEP ]; then
+  rm $IMG
+fi
+
 echo -e "\n\nall done!"
 
 echo -e "\nreinsert the card if you'd like to add a wpa_supplicant.conf to the /boot partition. \n" \
   "\nto search for local camera addresses, you could use the following command: \n"
 
-echo -e "sudo nmap -sP 10.206.1.1/24 | awk '/^Nmap/{"'ip=$NF'"}/B8:27:EB/{print ip}  \n"
 # literal (escaped $ for echo):
 # sudo nmap -sP 10.206.1.1/24 | awk '/^Nmap/{ip=$NF}/B8:27:EB/{print ip}'
+
+echo -e "sudo nmap -sP 10.206.1.1/24 | awk '/^Nmap/{"'ip=$NF'"}/B8:27:EB/{print ip}  \n"
